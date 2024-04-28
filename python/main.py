@@ -7,15 +7,25 @@ while True:
     # ...
 
     test = str(n) + '\n'
-    slow = popen("echo {} | slow.py".format(test)).read()
-    fast = popen("echo {} | fast.py".format(test)).read()
+    slow = popen("echo {} | python slow.py".format(test)).read()
+    fast = popen("echo {} | python fast.py".format(test)).read()
 
     if slow == fast:
-        print("OK\n", slow, fast, sep='')
-        # print("test:\n", test, sep='')
+        print("test:")
+        print(test)
+        print("OK")
+        print("fast: ")
+        print(fast, end='')
+        print("slow: ")
+        print(slow, end='')
+        print()
     else:
+        print("test:")
+        print(test)
         print("FAIL")
-        print("test:\n", test, sep='')
-        print("slow:\n", slow, sep='')
-        print("fast:\n", fast, sep='')
+        print("fast: ")
+        print(fast, end='')
+        print("slow: ")
+        print(slow, end='')
+        print()
         break
